@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Biblioteca Distrito uno</title>
+
+  <link href="../css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../css/biblioteca.css">
+  <link href="../css/simple-sidebar.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-dark border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading text-light">Comunidades</div>
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Tojo</a>
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Buena Vista</a>
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Pelod</a>
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Rupaska</a>
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Carretas</a>
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Atacama</a>
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Asloca</a>
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Arteza</a>
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Santa Barbara</a>
+        <a href="#" class="list-group-item list-group-item-action bg-dark text-light">Molles Pampa</a>
+
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-dark border-bottom">
+        <button class="btn btn-primary" id="menu-toggle"><img src="../img/menu-button-of-three-horizontal-lines.svg" style="width: 25px;height: auto;"></button>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link text-light" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link text-light" href="biblioteca.html">Inicio <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="profesores.html">Profresores</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="administrativos.html">Junta De Padres</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="noticia.html">Noticias</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <center>
+         
+     <div class="box-header with-border">
+          <h1 class="box-title">Tareas e Investigaciones<button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar</button> </h1>
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+      <div class="panel-body" id="formularioregistros">
+        <form name="formulario" id="formulario" method="POST">
+          <div class="form-group col-lg-6">
+            <label>Titulo(*):</label>
+            <input type="hidden" name="idlibro" id="idlibro">
+            <input type="text" class="form-control mayusculas" name="nombre" id="nombre" maxlength="70" placeholder="Titulo" required="">
+          </div>
+          <div class="form-group col-lg-6">
+            <label>Materia(*):</label>
+            <input type="text" class="form-control mayusculas" name="materia" id="materia" maxlength="70" placeholder="Materia referente..." required="">
+          </div>
+          <div class="form-group col-lg-6">
+            <label>Foto:</label>
+            <input type="file" class="form-control" onclick="mostrarimg()" name="imagen" id="imagen">
+            <input type="hidden" name="imagenactual" id="imagenactual">
+            <img src="" width="150px" height="120px" id="imagenmuestra">
+          </div>
+          <div class="form-group col-lg-6">
+            <label>Archivo:</label>
+            <input type="file" class="form-control" name="archivo" id="archivo">
+            <input type="hidden" name="archivoactual" id="archivoactual">
+            <img src="" width="150px" height="120px" id="archivomuestra">
+          </div>
+          <div class="form-group col-lg-6">
+            <label>Descripcion y Comunidad:</label>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required="" placeholder="Detalles de noticia"></textarea>
+          </div>
+          
+          <div class="form-group col-lg-6">
+            <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
+
+            <button class="btn btn-danger" onclick="cancelarform()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
+          </div>
+        </form>
+      </div>
+  </center>
+  <div class="container-fluid tar">
+
+      <div class="container" id="listado" name="listado">
+
+        <div class="box">
+          <img src="../img/photo-1531330969550-7e8a9b2fb3df.jpg" alt="">
+          <h2>Título de imagen</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam rem dolor doloremque sequi magni pariatur repudiandae officia, culpa, quisquam rerum fugiat illum! Molestias quod consequuntur, ea ipsam aut necessitatibus at!</p>
+        </div>
+        <div class="box">
+          <img src="../img/friend-2727307_1280.jpg" alt="">
+          <h2>Título de imagen</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam rem dolor doloremque sequi magni pariatur repudiandae officia, culpa, quisquam rerum fugiat illum! Molestias quod consequuntur, ea ipsam aut necessitatibus at!</p>
+        </div>
+        <div class="box">
+          <img src="../img/pro.jpg" alt="">
+          <h2>Título de imagen</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam rem dolor doloremque sequi magni pariatur repudiandae officia, culpa, quisquam rerum fugiat illum! Molestias quod consequuntur, ea ipsam aut necessitatibus at!</p>
+        </div>
+        <div class="box">
+          <img src="../img/tercera-orden-e1530401194504.jpg" alt="">
+          <h2>Título de imagen</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam rem dolor doloremque sequi magni pariatur repudiandae officia, culpa, quisquam rerum fugiat illum! Molestias quod consequuntur, ea ipsam aut necessitatibus at!</p>
+        </div>
+        <div class="box">
+          <img src="../img/Uniformes-Manzanillo.jpg" alt="">
+          <h2>Título de imagen</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam rem dolor doloremque sequi magni pariatur repudiandae officia, culpa, quisquam rerum fugiat illum! Molestias quod consequuntur, ea ipsam aut necessitatibus at!</p>
+        </div>
+        <div class="box">
+          <img src="../img/photo-1531330969550-7e8a9b2fb3df.jpg" alt="">
+          <h2>Título de imagen</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam rem dolor doloremque sequi magni pariatur repudiandae officia, culpa, quisquam rerum fugiat illum! Molestias quod consequuntur, ea ipsam aut necessitatibus at!</p>
+        </div>
+        <div class="box">
+          <img src="../img/friend-2727307_1280.jpg" alt="">
+          <h2>Título de imagen</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam rem dolor doloremque sequi magni pariatur repudiandae officia, culpa, quisquam rerum fugiat illum! Molestias quod consequuntur, ea ipsam aut necessitatibus at!</p>
+        </div>
+        <div class="box">
+    </div>
+    <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../js/jquery-3.3.1.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="script/libros.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>

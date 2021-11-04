@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Distrito Uno "Unidad Educativa Narciso Campero - Tojo</title>
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+  <link rel="shortcut icon" href="../img/logo.jpg">
+  <link rel="stylesheet" type="text/css" href="../css/stylenav.css">
+  <link rel="stylesheet" type="text/css" href="../css/styleindex.css">
+  <link rel="stylesheet" type="text/css" href="../css/galeria.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Distrito Uno - Tojo</a>
+      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="profesores.html">Profesores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="administrativos.html">Junta de Padres</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="noticia.html">Noticias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="biblioteca.html">Biblioteca Virtual</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid tar">
+    <center>
+      <div class="box-header with-border">
+        <h1 class="box-title">Junta De padres<button class="btn btn-success" id="btnagregar"
+            onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar</button> </h1>
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+      <div class="panel-body container" id="formularioregistros">
+        <form name="formulario" id="formulario" method="POST">
+          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label>Nombre:</label>
+            <input type="hidden" name="idadministracion" id="idadministracion">
+            <input type="text" class="form-control" name="nombre" id="nombre" maxlength="70" placeholder="Nombre"
+              required>
+          </div>
+          <div class="form-group col-lg-6">
+            <label>Cargo</label>
+            <input type="text" class="form-control" name="cargo" id="cargo" maxlength="70" />
+          </div>
+          <div class="form-group col-lg-6">
+            <label>Unidad Educativa</label>
+            <input type="text" class="form-control" name="unidad" id="unidad" maxlength="70" />
+          </div>
+          <div class="form-group col-lg-6">
+            <label>Comunidad</label>
+            <input type="text" class="form-control" name="comunidad" id="comunidad" maxlength="70" />
+          </div>
+          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <label>Imagen:</label>
+            <input type="file" class="form-control" onclick="mostrarimg()" name="imagen" id="imagen">
+            <input type="hidden" name="imagenactual" id="imagenactual">
+            <img src="" width="150px" height="120px" id="imagenmuestra">
+          </div>
+          <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
+
+            <button class="btn btn-danger" onclick="cancelarform()" type="button"><i
+                class="fa fa-arrow-circle-left"></i> Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </center>
+    <div class="row" id="listado" name="listado">
+
+      <div class="card col-md-3 col-sm-6">
+        <div class="prof">
+          <div class="foto">
+            <img src="../img/pro.jpg" class="perfil">
+          </div>
+          <div class="contenido">
+            <p>lucia pedraza</p>
+            <p>Maestro de la secundarians</p>
+            <a href="#">LUN</a>
+            <a href="#">MAR</a>
+            <a href="#">MIE</a>
+            <a href="#">JUE</a>
+            <a href="#">VIE</a>
+          </div>
+        </div>
+      </div>
+      <div class="card col-md-3 col-sm-6 ">
+        <div class="prof">
+          <div class="foto">
+            <img src="../img/pro.jpg" class="perfil">
+          </div>
+          <div class="contenido">
+            <p>lucia pedraza</p>
+            <p>Maestro de la secundaria</p>
+            <a href="#">LUN</a>
+            <a href="#">MAR</a>
+            <a href="#">MIE</a>
+            <a href="#">JUE</a>
+            <a href="#">VIE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fuit linfin">
+    <div class="tercera">
+      <p class="ter">Tercera Orden Franciscana</p>
+    </div>
+    <div class="infter col-12">
+      <p class="text"><img src="../img/gmail.svg" style="width: 25px;height: auto;"> Terceraorden@gmail.com</p>
+      <p class="text"><img src="../img/facebook-logo-button.svg" style="width: 25px;height: auto;">
+        facebook.com/terceraorden</p>
+      <p class="text"><img src="../img/smartphone.svg" style="width: 25px;height: auto;"> +591 65818482</p>
+      <p class="text"><img src="../img/mapa-marcador.svg" style="width: 25px;height: auto;"> calle junin entre tantos
+        tantos y tantos tantos</p>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="script/administrador.js"></script>
+</body>
+
+</html>

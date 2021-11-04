@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "ps";
+  src: url("../fuentes/Birds of Paradise © PERSONAL USE ONLY.ttf");
+}
+.navbar-dark > .container > .collapse > .navbar-nav > .nav-item > a{
+	color: #f1f1f1;
+	font-family: Georgia;
+}
+.navbar-dark > .container > a{
+	color: #f1f1f1;
+	font-family: ps;
+	font-size: 25px;
+}

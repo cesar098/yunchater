@@ -1,0 +1,58 @@
+
+@font-face {
+  font-family: "poppins";
+  src: url("../fuentes/PoppinsLatin-Light.otf");
+}
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'poppins', sans-serif;
+	background: #777;
+}
+.container{
+	width: 100%;
+	margin: 20px;
+	columns: 4;
+	column-gap: 40px;
+}
+.container .box{
+	width: 100%;
+	margin: 0 0 20px;
+	padding: 10px;
+	background: #fff;
+	overflow: hidden;
+	break-inside: avoid;
+}
+.container .box img{
+	max-width: 100%;
+}
+.container .box h2{
+	margin: 10px 0 0;
+	padding: 0;
+	font-size: 20px;
+}
+.container .box p{
+	margin: 0;
+	padding: 0 0 10px;
+	font-size: 16px;
+}
+@media (max-width: 1200px){
+	.container{
+		columns: 3;
+		width: calc(100% - 40px);
+		box-sizing: border-box;
+		padding: 20px 20px 20px 0;
+	}
+}
+
+@media (max-width: 768px){
+	.container{
+		columns: 2;
+	}
+}  
+
+@media (max-width: 480px){
+	.container{
+		columns: 1;
+	}
+}  

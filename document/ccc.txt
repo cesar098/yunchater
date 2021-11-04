@@ -1,0 +1,5 @@
+ public function listarActivosVenta(){
+           $sql="SELECT c.idarticulo,a.idcategoria, c.iddetalle_ingreso, c.precio_venta,c.precio_compra, a.codigo, a.nombre, a.stock, a.descripcion,a.imagen, a.condicion, q.nombre as categoria FROM detalle_ingreso c, articulo a, categoria q WHERE c.idarticulo=a.idarticulo AND a.idcategoria=q.idcategoria";
+                
+        return ejecutarConsulta($sql);
+    }

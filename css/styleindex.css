@@ -1,0 +1,167 @@
+body{
+
+	background: #343A40;
+}
+a:hover{
+	text-decoration: none;
+}
+@font-face {
+  font-family: "ps";
+  src: url("../fuentes/Thyssen J Italic.TTF");
+}
+@media (min-width: 800px) {
+	.carousel-item img{
+		margin-top: 50px;
+		width: 100%;
+		height: 100vh;
+	}
+
+}
+@media (max-width: 799px) {
+	.carousel-item{
+		margin-top: 50px;
+		width: 100%;
+		height: auto;
+	}
+}
+
+.not{
+	background-color: #f1f1f1;
+	height: 100vh;
+}
+
+.tit h3{
+	margin-top: 15px;
+	text-transform: uppercase;
+	font-family: Georgia;
+}
+
+.foto img{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.noticia{
+	margin-bottom: 25px;
+	-webkit-box-shadow: inset 2px 0px 9px 2px rgba(231,166,26,0.62);
+	-moz-box-shadow: inset 2px 0px 9px 2px rgba(231,166,26,0.62);
+	box-shadow: inset 2px 0px 9px 2px rgba(231,166,26,0.62);
+}
+.infnot{
+	padding-top: 15px;
+}
+.titno p{	
+	font-size: 25px;
+	font-family: ps;
+}
+.noti p{
+	font-family: Times new roman;
+}
+
+.button {
+  display: inline-block;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 15px 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background 300ms;
+}
+.button.outline {
+  color: black;
+  overflow: hidden;
+  position: relative;
+}
+.button.outline:before, .button.outline:after, .button.outline .lines:before, .button.outline .lines:after {
+  background-color: black;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: transform 300ms;
+  width: 100%;
+}
+.button.outline:before {
+  bottom: 0;
+  top: auto;
+}
+.button.outline .lines {
+  display: block;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}
+.button.outline .lines:before, .button.outline .lines:after {
+  height: 100%;
+  width: 2px;
+}
+.button.outline .lines:after {
+  left: auto;
+  right: 0;
+}
+.button:hover:before {
+  transform: translateX(-101%);
+}
+.button:hover:after {
+  transform: translateX(101%);
+}
+.button:hover .lines:before {
+  transform: translateY(-101%);
+}
+.button:hover .lines:after {
+  transform: translateY(101%);
+}
+.button-holder {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.linfin{
+	background: #777;
+}
+.tercera{
+	text-align: center;
+	margin-left: 15px;
+	padding-top: 10px;
+}
+.tercera .ter {
+	font-size: 20px;	
+	font-family: ps;
+	color: #f1f1f1;display:inline-block
+}
+.infter{
+}
+.infter .text{
+	float: left;
+	font-size: 15px;
+	font-family: ps;
+	color: #f1f1f1;
+	margin-right: 20px;
+
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  border: 0 solid #eee;
+}
+::-webkit-scrollbar-track:horizontal {
+  border-bottom-width: 1px;
+}
+::-webkit-scrollbar-track:vertical {
+  border-right-width: 1px;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 0px solid #FF9800;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  border-bottom-width: 4px;
+}
+::-webkit-scrollbar-thumb:vertical {
+  border-right-width: 10px;
+}

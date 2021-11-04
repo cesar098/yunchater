@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Distrito Uno "Unidad Educativa Narciso Campero - Tojo</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+  <link rel="shortcut icon" href="../img/logo.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="../css/stylenav.css">
+  <link rel="stylesheet" type="text/css" href="../css/styleindex.css">
+  <link rel="stylesheet" type="text/css" href="../css/galeria.css">
+  <link rel="stylesheet" type="text/css" href="../css/alerta.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Distrito Uno "Unidad Educativa Narciso Campero - Tojo</a>
+      <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../index.html">Inicio <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profesores</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="administrativos.html">Junta De Padres</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="noticia.html">Noticias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="biblioteca.html">Biblioteca Virtual</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid tar">
+
+     <div class="box-header with-border">
+          <h1 class="box-title">Profesores<button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar</button> </h1>
+        <div class="box-tools pull-right">
+        </div>
+      </div>
+      <div class="panel-body container" id="formularioregistros">
+          <form name="formulario" id="formulario" method="POST">
+          <div >
+            <div class="form-group ">
+              <label>Nombre(*):</label>
+              <input type="hidden" name="idprofesor" id="idprofesor">
+              <input type="text" class="form-control mayusculas" name="nombre" id="nombre" maxlength="70" placeholder="Nombre y apellido(s)" required>
+            </div>
+            <div class="form-group ">
+              <label>Materia(*):</label>
+              <input type="text" class="form-control mayusculas" name="materia" id="materia" placeholder="Materia"maxlength="70"  required>
+            </div>
+            <div class="form-group ">
+              <label>Grado(*):</label>
+              <input type="text" class="form-control mayusculas" name="grado" id="grado" placeholder="Grado" maxlength="70" required>
+            </div>
+            <div class="form-group ">
+              <label>Comunidad(*):</label>
+              <input type="text" class="form-control mayusculas" name="comunidad" id="comunidad" placeholder="Comunidad" maxnombre" maxlength="70" placeholder="Nombre y apellido(s)" required>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">Descripcion y Comunidad</label>
+              <textarea class="form-control" id="descripcion" name="descripcion" rows="3" required="" placeholder="Detalles de Profesores"></textarea>
+            </div>
+            <div class="form-group ">
+              <label>Unidad Educativa(*):</label>
+              <input type="hidden" name="idprofesor" id="idprofesor">
+              <input type="text" class="form-control mayusculas" name="unidad" id="unidad" maxlength="70" required>
+            </div>
+            <div class="form-group ">
+              <label>Imagen:</label>
+              <input type="file" class="form-control" onclick="mostrarimg()" name="imagen" id="imagen">
+              <input type="hidden" name="imagenactual" id="imagenactual">
+              <img src="" width="150px" height="120px" id="imagenmuestra">
+            </div>
+          </div>
+            <!--div class="form-group col-lg-6" style="float: top;">
+              <h3>Dias:</h3>
+              <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="lunes" name="dias[]" value="Lunes" onclick="hrsnew(this)">
+              <label class="form-check-label" for="i1">lunes</label>
+                <div id="horas1" class="form-group col-lg-6">
+                  <input type="radio" name="lunesr1[]" id="lunes" value="mañana">Mañana<br>
+                  <input type="radio" name="lunesr1[]" id="lunes" value="tarde">Tarde
+                  <input type="radio" name="lunesr1[]" id="lunes" value="mañana y tarde">Manana y tarde     
+                </div>
+              </div><br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="i2" name="dias[]" value="Martes" onclick="hrsnew(this)">
+                <label class="form-check-label" for="i2">martes</label>
+                  <div id="horas2" class="form-group col-lg-6">
+                    <input type="radio" name="lunesr2[]" id="martes" value="mañana">Mañana<br>
+                    <input type="radio" name="lunesr2[]" id="martes" value="tarde">Tarde<br>
+                    <input type="radio" name="lunesr2[]" id="martes" value="mañana y tarde">Manana y tarde     
+                  </div>
+              </div><br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="i3" name="dias[]" value="Miercoles" onclick="hrsnew(this)">
+                <label class="form-check-label" for="i3">miercoles</label>
+                  <div id="horas3" class="form-group col-lg-6">
+                    <input type="radio" name="lunesr3[]" id="miercoles" value="mañana">Mañana<br>
+                    <input type="radio" name="lunesr3[]" id="miercoles" value="tarde">Tarde<br>
+                    <input type="radio" name="lunesr3[]" id="miercoles" value="mañana y tarde">Manana y tarde     
+                  </div>
+              </div><br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="i4" name="dias[]" value="Jueves" onclick="hrsnew(this)">
+                <label class="form-check-label" for="i4">jueves</label>
+                  <div id="horas4" class="form-group col-lg-6">
+                    <input type="radio" name="lunesr4[]" id="jueves" value="mañana">mañana<br>
+                    <input type="radio" name="lunesr4[]" id="jueves" value="tarde">tarde<br>
+                    <input type="radio" name="lunesr4[]" id="jueves" value="mañana y tarde">Manana y tarde     
+                  </div>
+              </div><br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="i5" name="dias[]" value="Viernes" onclick="hrsnew(this)">
+                <label class="form-check-label" for="i5">viernes</label>
+                  <div id="horas5" class="form-group col-lg-6">
+                    <input type="radio" name="lunesr5[]" id="viernes" value="mañana">Mañana<br>
+                    <input type="radio" name="lunesr5[]" id="viernes" value="tarde">Tarde<br>
+                    <input type="radio" name="lunesr5[]" id="viernes" value="mañana y tarde">Manana y tarde     
+                  </div>
+              </div>
+           </div-->
+
+            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i>Guardar</button>
+              <button class="btn btn-danger" onclick="cancelarform()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
+            </div>
+          </form>
+      </div>
+    <div class="row" id="cartas" name="cartas">
+     
+      <div class="card col-md-3 col-sm-6">
+        <div class="prof">
+          <div class="foto">
+            <img src="../img/pro.jpg" class="perfil">
+          </div>
+          <div class="contenido">
+            <p>lucia pedraza</p>
+            <p>Maestro de la secundarians</p>
+            <a href="#">LUN</a>
+            <a href="#">MAR</a>
+            <a href="#">MIE</a>
+            <a href="#">JUE</a>
+            <a href="#">VIE</a>
+          </div>
+        </div>
+      </div>
+      <div class="card col-md-3 col-sm-6 ">
+        <div class="prof">
+          <div class="foto">
+            <img src="../img/pro.jpg" class="perfil">
+          </div>
+          <div class="contenido">
+            <p>lucia pedraza</p>
+            <p>Maestro de la secundaria</p>
+            <a href="#">LUN</a>
+            <a href="#">MAR</a>
+            <a href="#">MIE</a>
+            <a href="#">JUE</a>
+            <a href="#">VIE</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fuit linfin">
+    <div class="tercera">
+      <p class="ter">Distrito Uno "Unidad Educativa Narciso Campero - Tojo</p>
+    </div>
+    <div class="infter col-12">
+      <p class="text"><img src="../img/gmail.svg" style="width: 25px;height: auto;"> Terceraorden@gmail.com</p>
+      <p class="text"><img src="../img/facebook-logo-button.svg" style="width: 25px;height: auto;"> facebook.com/terceraorden</p>
+      <p class="text"><img src="../img/smartphone.svg" style="width: 25px;height: auto;"> +591 65818482</p>
+      <p class="text"><img src="../img/mapa-marcador.svg" style="width: 25px;height: auto;"> calle junin entre tantos tantos y tantos tantos</p>
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+  <script type="text/javascript" src="../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="script/regProfesores.js"></script>
+  <script type="text/javascript">
+    function horario(){
+      var au = $("#ora").val();
+      
+      $("#hoar").html(au);
+    }
+
+    function hrsnew(chkLunes){
+      var lunes = document.getElementById("lunes");
+        horas1.style.display = lunes.checked ? "block" : "none";
+      var i2 = document.getElementById("i2");
+        horas2.style.display = i2.checked ? "block" : "none";
+      var i3 = document.getElementById("i3");
+        horas3.style.display = i3.checked ? "block" : "none";
+      var i4 = document.getElementById("i4");
+        horas4.style.display = i4.checked ? "block" : "none";
+      var i5 = document.getElementById("i5");
+        horas5.style.display = i5.checked ? "block" : "none";
+    }
+
+    function turneo(id){
+      //var n=$("#contl").val();
+      var n=id==1? $("#contl").val(): id==2? $("#contm").val(): id==3? $("#contmi").val():id==4? $("#contj").val(): $("#contv").val();
+      var hr;
+      for (var i = 0; i < n; i++) {
+        var o="l"+i;
+        var q;
+        if (id!=1) {
+          if(id!=2){
+            if(id!=3){
+              if(id!=4)
+                q="j"+i;
+              else
+                q="v"+i;
+            }
+            else
+              q="mi"+i;
+          }
+          else
+            q="m"+i;
+        }else{
+          q="l"+1
+        }
+        hr+='<input type="time" id="'+q+'[]" name="horapr[]" class="form-control" onclick="horario()" onchange="horario()">';
+      }
+
+      id==1? $("#turnol").html(hr): id==2? $("#turnom").html(hr) : id==3? $("#turnomi").html(hr): id==4?$("#turnoj").html(hr):$("#turnov").html(hr);
+    }
+
+    
+  </script>
+</body>
+</html>
