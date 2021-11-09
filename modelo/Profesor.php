@@ -6,8 +6,7 @@ class Profesor{
     public function insertarprof($nombre,$materia,$grado,$comunidad,$unidad,$foto,$descripcion)
     {
         $id_distrito = $this->dodble($unidad,$comunidad);
-        echo $id_distrito;
-        $sql="INSERT INTO profesor (nombre, materia, grado, descripcion,imagen, id_distrito) VALUES ('$nombre','$foto','$descripcion', '$foto' , $id_distrito)";
+        $sql="INSERT INTO profesor (nombre, materia, grado, descripcion,imagen, id_distrito) VALUES ('$nombre','$materia','$grado','$descripcion', '$foto' , $id_distrito)";
         return ejecutarConsulta($sql);
 
         /*$idprof= ejecutarConsulta_retornarID($sql);
@@ -89,11 +88,11 @@ class Profesor{
     }
 
     //administracion (Trabajadores)
-    public function insertaradm($nombre,$cargo,$unidad,$comunidad,$imagen)
+    public function insertaradm($nombre,$cargo,$unidad,$comunidad,$foto)
     {
         $id_distrito = $this->dodble($unidad,$comunidad);
-
-        $sql="INSERT INTO junta (nombre, cargo, imagen, id_distrito) VALUES ('$nombre','$cargo','$imagen', '$id_distrito')";
+        
+        $sql="INSERT INTO junta (nombre, cargo, imagen, id_distrito) VALUES ('$nombre','$cargo','$foto', '$id_distrito')";
         return ejecutarConsulta($sql);
     }
     public function editaradm($idadministracion,$nombre,$cargo,$unidad,$comunidad,$imagen)
@@ -110,13 +109,15 @@ class Profesor{
 
     public function dodble($unidad,$comunidad){
         $doble = $this->comprueba_duplicados($unidad);
-        $id_distrito = 1;
         if($doble==0){
             $distrito = "INSERT INTO distrito (unidad, comunidad) VALUES ('$unidad', '$comunidad')";
             return $id_distrito = ejecutarConsulta_retornarID($distrito);
         }else {
             $distrito = "SELECT id FROM distrito WHERE unidad = $unidad";
-            return $id_distrito = ejecutarConsulta($distrito); 
+            $id_re = ejecutarConsultaSimpleFila($distrito);
+            //$id_re1 = mysqli_fetch_assoc($id_re);
+            $id_distrito=$id_re["id"]; 
+            return $id_distrito;
         }
     }
     public function mostraradm($idadministracion){

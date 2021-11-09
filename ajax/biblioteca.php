@@ -27,7 +27,7 @@ switch ($_GET['op']) {
 		    echo "El archivo ".  basename( $_FILES['archivo']['name']). 
 		    " ha sido subido";
 		    $archivo=basename( $_FILES['archivo']['name']);
-		} else{
+		} else {
 		    echo "Ha ocurrido un error, trate de nuevo!";
 		}
 		if (empty($idbiblioteca)) {
@@ -45,12 +45,12 @@ switch ($_GET['op']) {
 		$data=array();
 		while ($reg=$rpsta->fetch_object()){
 			$listado='
-			<div class="box">
-          	<img src="../img/'.$reg->foto.'" alt="">
-          	<h2>'.$reg->titulo.'</h2>
-          	<p>'.$reg->materia.'</p>
-          	<a href="../document/'.$reg->archivo.'" class="btn btn-warning" download="'.$reg->archivo.'">Download</a>
-        	</div>';
+				<div class="box">
+					<img src="../img/'.$reg->imagen.'" alt="">
+					<h2>'.$reg->titulo.'</h2>
+					<p>'.$reg->materia.'</p>
+					<a href="../document/'.$reg->archivo.'" class="btn btn-warning" download="'.$reg->archivo.'">Download</a>
+				</div>';
         echo $listado;
 		}
 	break;

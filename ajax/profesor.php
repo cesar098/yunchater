@@ -50,7 +50,7 @@ switch ($_GET['op']) {
 						<div class="contenido">
 						<p>'.$reg->nombre.'</p>
 						<p>'.$reg->descripcion.'</p>
-						<p>'.$reg->cargo.'</p>
+						<p>'.$reg->grado.'</p>
 						<p>'.$reg->materia.'</p>
 						</div>
 					</div>

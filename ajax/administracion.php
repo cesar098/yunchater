@@ -22,11 +22,11 @@ switch ($_GET['op']) {
 			}
 		}
 		if (empty($idadministracion)) {
-		$rspta=$profesor->insertaradm($nombre,$cargo,$unidad,$comunidad,$imagen);
+		$rspta=$profesor->insertaradm($nombre,$cargo,$unidad,$comunidad,$foto);
 		echo $rspta?"Administrador registrado": "Administrador no registrado";
 		}
 		else{
-			$rspta=$profesor->editaradm($idadministracion,$nombre,$cargo,$unidad,$comunidad,$imagen);
+			$rspta=$profesor->editaradm($idadministracion,$nombre,$cargo,$unidad,$comunidad,$foto);
 		echo $rspta? "Administrador actualizado": "Administrador no se pudo actualizar";
 		}
 	break;
@@ -45,12 +45,6 @@ switch ($_GET['op']) {
           <div class="contenido">
             <p>'.$reg->nombre.'</p>
             <p>'.$reg->cargo.'</p>
-            <p>'.$reg->unidad.'</p>
-            <a href="#">LUN</a>
-            <a href="#">MAR</a>
-            <a href="#">MIE</a>
-            <a href="#">JUE</a>
-            <a href="#">VIE</a>
           </div>
         </div>
       </div>';
