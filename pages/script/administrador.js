@@ -5,6 +5,7 @@ function init() {
 	})
 	$("#imagenmuestra").hide();
 	listar();
+	seccion();
 }
 
 //Función limpiar
@@ -26,12 +27,20 @@ function mostrarform(flag) {
 		$("#formularioregistros").show();
 		$("#btnGuardar").prop("disabled", false);
 		$("#btnagregar").hide();
+		$("#listado").hide();
 	}
 	else {
 		$("#imagenmuestra").hide();
 		$("#formularioregistros").hide();
+		$("#listado").show();
 		$("#btnagregar").show();
 	}
+}
+
+function seccion(){
+	$.post("../ajax/profesor.php?op=sessionv", function(data){
+		console.log(data);
+	})
 }
 
 function guardar(e) {
@@ -75,6 +84,7 @@ function listar() {
 
 function mostrar(idadministracion) {
 	mostrarform(true);
+	console.log(idadministracion);
 	$.post("../ajax/administracion.php?op=mostrar", { idadministracion: idadministracion }, function (data, status) {
 		console.log(data);
 		data = JSON.parse(data);
@@ -85,8 +95,19 @@ function mostrar(idadministracion) {
 		$("#imagenmuestra").show();
 		$("#imagenmuestra").attr("src", "../img/" + data.imagen);
 		$("#imagenactual").val(data.imagen);
-		$("#idadministracion").val(data.idadministracion);
+		$("#idadministracion").val(data.id);
 
 	})
 }
+
+function eliminar(idprofesor) {
+	let reel = confirm("¿Está Seguro de desea eliminar?");
+	if (reel) {
+		console.log(idprofesor);
+		$.post("../ajax/administracion.php?op=eliminar", { idprofesor: idprofesor }, function (e) {
+			alert(e);
+		});
+	}
+}
+
 init();

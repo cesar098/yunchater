@@ -48,6 +48,7 @@ function guardar(e) {
 			mostrarform(false);
 			listar();
 			alert(datos);
+			console.log(datos);
 		}
 	});
 	limpiar();
@@ -65,7 +66,6 @@ function listar() {
 		url: "../ajax/noticia.php?op=listar",
 		type: "POST",
 		success: function (datos) {
-			console.log(datos);
 			cardta = datos;
 			$("#listado").html(datos);
 		}
@@ -78,12 +78,12 @@ function mostrar(idnoticia) {
 	$.post("../ajax/noticia.php?op=mostrar", { idnoticia: idnoticia }, function (data, status) {
 		console.log(data);
 		data = JSON.parse(data);
-		$("#nombre").val(data.nombre);
+		$("#nombre").val(data.titulo);
 		$("#descripcion").val(data.descripcion);
 		$("#imagenmuestra").show();
-		$("#imagenmuestra").attr("src", "../img/" + data.foto);
-		$("#imagenactual").val(data.foto);
-		$("#idnoticia").val(data.idnoticia);
+		$("#imagenmuestra").attr("src", "../img/" + data.imagen);
+		$("#imagenactual").val(data.imagen);
+		$("#idnoticia").val(data.id);
 
 	})
 }

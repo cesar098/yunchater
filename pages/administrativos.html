@@ -8,6 +8,8 @@
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
   <link rel="shortcut icon" href="../img/logo.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="../css/stylenav.css">
   <link rel="stylesheet" type="text/css" href="../css/styleindex.css">
   <link rel="stylesheet" type="text/css" href="../css/galeria.css">
@@ -45,38 +47,41 @@
   </nav>
 
   <div class="container-fluid tar">
-    <center>
       <div class="box-header with-border">
-        <h1 class="box-title">Junta De padres<button class="btn btn-success" id="btnagregar"
+        <h1 class="box-title" id="title">Junta De padres<button class="btn btn-success" id="btnagregar"
             onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar</button> </h1>
         <div class="box-tools pull-right">
         </div>
       </div>
       <div class="panel-body container" id="formularioregistros">
         <form name="formulario" id="formulario" method="POST">
+          <div class="form-row">
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <label>Nombre:</label>
+              <input type="hidden" name="idadministracion" id="idadministracion">
+              <input type="text" class="form-control" name="nombre" id="nombre" maxlength="70" placeholder="Nombre" required>
+            </div>
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <label>Cargo</label>
+              <input type="text" class="form-control" name="cargo" id="cargo" maxlength="70" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <label>Unidad Educativa</label>
+              <input type="text" class="form-control" name="unidad" id="unidad" maxlength="70" />
+            </div>
+          
+            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+              <label>Imagen:</label>
+              <input type="file" class="form-control" onclick="mostrarimg()" name="imagen" id="imagen">
+              <input type="hidden" name="imagenactual" id="imagenactual">
+              <img src="" width="150px" height="120px" id="imagenmuestra">
+            </div>
+          </div>
           <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <label>Nombre:</label>
-            <input type="hidden" name="idadministracion" id="idadministracion">
-            <input type="text" class="form-control" name="nombre" id="nombre" maxlength="70" placeholder="Nombre"
-              required>
-          </div>
-          <div class="form-group col-lg-6">
-            <label>Cargo</label>
-            <input type="text" class="form-control" name="cargo" id="cargo" maxlength="70" />
-          </div>
-          <div class="form-group col-lg-6">
-            <label>Unidad Educativa</label>
-            <input type="text" class="form-control" name="unidad" id="unidad" maxlength="70" />
-          </div>
-          <div class="form-group col-lg-6">
             <label>Comunidad</label>
             <input type="text" class="form-control" name="comunidad" id="comunidad" maxlength="70" />
-          </div>
-          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <label>Imagen:</label>
-            <input type="file" class="form-control" onclick="mostrarimg()" name="imagen" id="imagen">
-            <input type="hidden" name="imagenactual" id="imagenactual">
-            <img src="" width="150px" height="120px" id="imagenmuestra">
           </div>
           <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i> Guardar</button>
@@ -86,7 +91,6 @@
           </div>
         </form>
       </div>
-    </center>
     <div class="row" id="listado" name="listado">
 
       <div class="card col-md-3 col-sm-6">
@@ -142,6 +146,19 @@
   <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
   <script type="text/javascript" src="../js/bootstrap.min.js"></script>
   <script type="text/javascript" src="script/administrador.js"></script>
+  <script>
+    document.getElementById("imagen").onchange = function(e){
+      let read = new FileReader();
+      read.readAsDataURL(e.target.files[0]);
+
+      $("#imagenmuestra").show();
+      read.onload =function(){
+        let prev = document.getElementById("imagenmuestra");
+        prev.src = read.result;
+
+      }
+    }
+  </script>
 </body>
 
 </html>

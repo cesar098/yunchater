@@ -22,8 +22,9 @@ switch ($_GET['op']) {
 			}
 		}
 		if (empty($idadministracion)) {
-		$rspta=$profesor->insertaradm($nombre,$cargo,$unidad,$comunidad,$foto);
-		echo $rspta?"Administrador registrado": "Administrador no registrado";
+
+			$rspta=$profesor->insertaradm($nombre,$cargo,$unidad,$comunidad,$foto);
+			echo $rspta?"Administrador registrado": "Administrador no registrado";
 		}
 		else{
 			$rspta=$profesor->editaradm($idadministracion,$nombre,$cargo,$unidad,$comunidad,$foto);
@@ -35,25 +36,31 @@ switch ($_GET['op']) {
 		$data=array();
 		while ($reg=$rpsta->fetch_object()){
 			$listado='<div class="card col-md-3 col-sm-6 ">
-        <div class="prof">
-        	<div>
-				<button class="btn btn-danger" onclick="mostrar('.$reg->id.')"></button>
+			<div><a  onclick="mostrar('.$reg->id.')"><span class="fas fa-edit" style="float:height"></span> </a>
+						<a  onclick="eliminar('.$reg->id.')"><span class="fas fa-eraser" style="float:right; color:red"></span> </a>
+						</div>
+					<div class="prof">
+        	
+			<div class="foto">
+				<img src="../img/'.$reg->imagen.'" class="perfil">
 			</div>
-          <div class="foto">
-            <img src="../img/'.$reg->imagen.'" class="perfil">
-          </div>
-          <div class="contenido">
-            <p>'.$reg->nombre.'</p>
-            <p>'.$reg->cargo.'</p>
-          </div>
-        </div>
-      </div>';
-      echo $listado;
+			<div class="contenido">
+				<p>'.$reg->nombre.'</p>
+				<p>'.$reg->cargo.'</p>
+			</div>
+			</div>
+		</div>';
+    	echo $listado;
 		}
 	break;
 	case 'mostrar':
 		$sql=$profesor->mostraradm($idadministracion);
 		echo json_encode($sql);
 	break;
+	case 'eliminar':
+		$sql=$profesor->eliminaradm($idadministracion);
+		echo json_encode($sql);
+	break;
+		
 }
 ?>

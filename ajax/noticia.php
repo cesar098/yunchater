@@ -57,11 +57,11 @@ switch ($_GET['op']) {
 			<div class="col-12 noticia">
 				<div class="row" id="listado">
 					<div class="col-md-4 col-sm-12 foto">
-						<img src="img/'.$reg->foto.'" class="img-fluid">
+						<img src="img/'.$reg->imagen.'" class="img-fluid">
 					</div>
 					<div class="col-md-8 col-sm-12 infnot">
 						<div class="titno">
-							<p>'.$reg->nombre.'</p>
+							<p>'.$reg->titulo.'</p>
 						</div>
 						<div class="noti">
 							<p>'.$reg->descripcion.'.</p>

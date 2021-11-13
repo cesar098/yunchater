@@ -7,12 +7,12 @@ function init(){
 function Listar(){
 	$.ajax({
 		url: "ajax/noticia.php?op=mostrarindex",
-	    type: "POST",
-	    success: function(datos)
-	    {
-	    	console.log(datos);
-	    	$("#listado").html(datos);
-	    }
+		type: "POST",
+		success: function(datos)
+		{
+			console.log(datos);
+			$("#listado").html(datos);
+		}
 	});
 }
 

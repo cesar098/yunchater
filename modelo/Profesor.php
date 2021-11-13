@@ -3,10 +3,23 @@ require_once "../conex/Conexion.php";
 class Profesor{
     
     //profesores
-    public function insertarprof($nombre,$materia,$grado,$comunidad,$unidad,$foto,$descripcion)
+    public function usere($clavea,$logina){
+        $sql = "INSERT INTO users (nombr, passw) VALUES('$logina','$clavea');";
+        return ejecutarConsulta_retornarID($sql);
+    }
+
+    public function comprueba_user($logina){
+        $resultado = 0;
+        $sql = "SELECT COUNT(id) FROM users WHERE nombr = '$logina'";
+        $resultado = ejecutarConsultaSimpleFila($sql);
+        return $resultado["COUNT(id)"];
+    }
+
+    public function insertarprof($nombre,$materia,$grado,$comunidad,$unidad,$foto,$descripcion,$clavea,$logina)
     {
         $id_distrito = $this->dodble($unidad,$comunidad);
-        $sql="INSERT INTO profesor (nombre, materia, grado, descripcion,imagen, id_distrito) VALUES ('$nombre','$materia','$grado','$descripcion', '$foto' , $id_distrito)";
+        $id_users = $this->usere($clavea,$logina);
+        $sql="INSERT INTO profesor (nombre, materia, grado, descripcion,imagen, id_distrito,id_users) VALUES ('$nombre','$materia','$grado','$descripcion', '$foto' , $id_distrito,$id_users)";
         return ejecutarConsulta($sql);
 
         /*$idprof= ejecutarConsulta_retornarID($sql);
@@ -40,7 +53,15 @@ class Profesor{
 
     }
 
-    public function editarprof($idprofesor,$nombre,$materia,$grado,$comunidad,$unidad,$foto,$descripcion)
+    public function edituser($user,$clavea,$logina){
+        $sql = "SELECT * FROM profesor p, users u where id= $user AND p.id_users=u.id";
+        $id_use = ejecutarConsultaSimpleFila($sql);
+        $re = id_users["id_users"];
+        $sql2 = "UPDATE user SET nombr='$logina', passw= '$clavea' WHERE id='$re'";
+        ejecutarConsulta($sql2);
+        return $id_use['id_users'];
+    }
+    public function editarprof($idprofesor,$nombre,$materia,$grado,$comunidad,$unidad,$foto,$descripcion,$clavea,$logina)
     {
         $id_distrito = $this->dodble($unidad,$comunidad);
 
@@ -53,12 +74,16 @@ class Profesor{
     }
 
     public function mostrarprof($idprofesor){
-        $sql="SELECT * FROM profesor WHERE id='$idprofesor'";
+        $sql="SELECT * FROM profesor p, distrito d WHERE p.id_distrito=d.id AND p.id='$idprofesor'";
         return ejecutarConsultaSimpleFila($sql);
     }
 
     public function listarprof2(){
-        $sql="SELECT * FROM profesor";
+        $sql="SELECT p.id, p.nombre, p.materia, p.grado, p.descripcion, p.imagen, d.unidad, d.comunidad FROM profesor p, distrito d WHERE d.id=p.id_distrito"; 
+        return ejecutarConsulta($sql);
+    }
+    public function delete($idprofesor){
+        $sql = "DELETE FROM profesor WHERE id='$idprofesor'";
         return ejecutarConsulta($sql);
     }
 
@@ -107,6 +132,11 @@ class Profesor{
         return ejecutarConsulta($sql);
     }
 
+    public function eliminaradm($idadministracion){
+        $sql= "DELETE FROM junta WHERE id='$idadministracion'";
+        return ejecutarConsulta($sql);
+    }
+
     public function dodble($unidad,$comunidad){
         $doble = $this->comprueba_duplicados($unidad);
         if($doble==0){
@@ -121,7 +151,7 @@ class Profesor{
         }
     }
     public function mostraradm($idadministracion){
-        $sql="SELECT * FROM administracion WHERE idadministracion='$idadministracion'";
+        $sql="SELECT * FROM junta a, distrito d WHERE a.id_distrito=d.id AND a.id='$idadministracion'";
         return ejecutarConsultaSimpleFila($sql);
     }
 
@@ -132,23 +162,29 @@ class Profesor{
         return ejecutarConsulta($sql);
     }
 
+    public function verificaradm($logina,$clavea){
+        $sql = "SELECT * FROM users WHERE nombr = '$logina' AND pass = '$clavea'";
+        return ejecutarConsulta($sql);
+    }
+
+    
 //libro
     //libro registro de libro y materia
     public function insertarlibro($titulo,$materia,$archivo,$foto,$descripcion){
 
-    	/*
+        /*
         $doble=$this->comprueba_duplicados($materia);
-    	if($doble==0){
-    	   $sql="INSERT INTO materia (nombre) VALUES ('$materia')";
-    	   $idmateria =ejecutarConsulta_retornarID($sql);
-    	}
+        if($doble==0){
+            $sql="INSERT INTO materia (nombre) VALUES ('$materia')";
+            $idmateria =ejecutarConsulta_retornarID($sql);
+        }
         else{
     	   $sql="SELECT * FROM materia WHERE (nombre='$materia')";
-    	   $idmateria=ejecutarConsultaSimpleFila($sql);
-    	}
+            $idmateria=ejecutarConsultaSimpleFila($sql);
+        }
         */	
-    	$sql="INSERT INTO investigacion (titulo, materia, archivo, descripcion, imagen) VALUES ('$titulo','$materia','$archivo','$descripcion','$foto')";
-    	return ejecutarConsulta($sql);
+        $sql="INSERT INTO investigacion (titulo, materia, archivo, descripcion, imagen) VALUES ('$titulo','$materia','$archivo','$descripcion','$foto')";
+        return ejecutarConsulta($sql);
     }
 
     public function listarlibro(){

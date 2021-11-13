@@ -1,22 +1,19 @@
 console.log();
-$("#frmAcceso").on('submit',function(e)
-{
+$("#frmLogin").on('submit', function (e) {
     e.preventDefault();
-    logina=$("#logina").val();
-    clavea=$("#clavea").val();
+    logina = $("#logina").val();
+    clavea = $("#clavea").val();
 
-    $.post("../ajax/usuario.php?op=verificar",
-        {"logina":logina,"clavea":clavea},
-        function(data)
-    {
-        if (data!="null")
-        {
-            $(location).attr("href","noticia.html");     
-            //bootbox.alert("Uso Password incorrectos");       
-        }
-        else
-        {
-            bootbox.alert("Usuario y/o Password incorrectos");
-        }
-    });
+    $.post("../ajax/administracion.php?op=verificar",
+        { "logina": logina, "clavea": clavea },
+        function (data) {
+            console.log(data);
+            if (!data) {
+                window.location.href = "../index.html"; //back to history    
+                //bootbox.alert("Uso Password incorrectos");       
+            }
+            else {
+                alert("Usuario y/o Password incorrectos");
+            }
+        });
 });

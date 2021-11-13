@@ -54,6 +54,7 @@ function guardar(e)
 
 	    success: function(datos)
 	    {                    
+			console.log(datos);
 	        mostrarform(false);
 			listar();
 	        alert(datos);	  
@@ -78,6 +79,11 @@ function mostrar(idprofesor)
 		data = JSON.parse(data);
 		$("#nombre").val(data.nombre);
 		$("#descripcion").val(data.descripcion);
+		$("#materia").val(data.materia);
+		$("#grado").val(data.grado);
+		$("#unidad").val(data.unidad);
+		$("#comunidad").val(data.comunidad);
+
 		$("#imagenmuestra").show();
 		$("#imagenmuestra").attr("src","../img/"+data.imagen);
 		$("#imagenactual").val(data.imagen);
@@ -94,7 +100,7 @@ var cardta;
 	    type: "POST",
 	    success: function(datos)
 	    {
-	    	console.log(datos);
+	    	//console.log(datos);
 	    	cardta = datos;
 	    	$("#cartas").html(datos);
 	    }
@@ -112,4 +118,23 @@ function hora(){
 	})
 }
 
+function eliminar(idprofesor) {
+	let reel = confirm("¿Está Seguro de desea eliminar?");
+	if (reel) {
+		console.log(idprofesor);
+		$.post("../ajax/profesor.php?op=eliminar", { idprofesor: idprofesor }, function (e) {
+			alert(e);
+		});
+	}
+}
+
+$("#user-login").hide();
+
+$("#checkb").change(function (e) {
+	if (e.target.checked) {
+		$("#user-login").show();
+	} else {
+		$("#user-login").hide();
+	}
+})
 init();

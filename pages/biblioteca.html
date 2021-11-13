@@ -54,9 +54,7 @@
             <li class="nav-item">
               <a class="nav-link text-light" href="../index.html">Inicio</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link text-light" href="biblioteca.html">Inicio <span class="sr-only">(current)</span></a>
-            </li>
+            
             <li class="nav-item">
               <a class="nav-link text-light" href="profesores.html">Profresores</a>
             </li>
@@ -176,7 +174,19 @@
       $("#wrapper").toggleClass("toggled");
     });
   </script>
+ <script>
+  document.getElementById("imagen").onchange = function(e){
+    let read = new FileReader();
+    read.readAsDataURL(e.target.files[0]);
 
+    $("#imagenmuestra").show();
+    read.onload =function(){
+      let prev = document.getElementById("imagenmuestra");
+      prev.src = read.result;
+
+    }
+  }
+</script>
 </body>
 
 </html>
