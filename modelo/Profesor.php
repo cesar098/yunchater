@@ -143,7 +143,7 @@ class Profesor{
             $distrito = "INSERT INTO distrito (unidad, comunidad) VALUES ('$unidad', '$comunidad')";
             return $id_distrito = ejecutarConsulta_retornarID($distrito);
         }else {
-            $distrito = "SELECT id FROM distrito WHERE unidad = $unidad";
+            $distrito = "SELECT * FROM distrito WHERE unidad = $unidad";
             $id_re = ejecutarConsultaSimpleFila($distrito);
             //$id_re1 = mysqli_fetch_assoc($id_re);
             $id_distrito=$id_re["id"]; 
